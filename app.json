@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "moor-tracker",
-    "slug": "moor-tracker",
+    "name": "moor",
+    "slug": "moor",
     "version": "1.0.0",
     "sdkVersion": "52.0.0",
     "orientation": "portrait",
