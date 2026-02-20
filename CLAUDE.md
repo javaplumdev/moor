@@ -4,7 +4,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Moor Tracker is a React Native mobile application built with:
+Moor is a React Native mobile application built with:
+
 - **Expo 52** - Framework for building cross-platform React Native apps
 - **Expo Router** - File-based routing (similar to Next.js)
 - **NativeWind** - Tailwind CSS styling for React Native
@@ -16,24 +17,29 @@ This is a **mobile-first application** with web support via Metro web bundler.
 ## Architecture
 
 ### File-Based Routing (Expo Router)
+
 The `app/` directory uses Expo Router's file-based routing convention:
+
 - `app/_layout.tsx` - Root layout/navigation stack
 - `app/index.tsx` - Home screen (mounted at `/`)
 - `app/profile.tsx` - Profile screen (mounted at `/profile`, etc.)
 - Nested folders create route groups and nested navigation
 
 ### Styling with NativeWind
+
 - All styling uses Tailwind CSS classes applied directly to React Native components
 - `global.css` contains the Tailwind directives (`@tailwind base; @tailwind components; @tailwind utilities;`)
 - `babel.config.js` has critical config: `jsxImportSource: 'nativewind'` - this enables JSX className syntax
 - `tailwind.config.js` scans `app/**`, `components/**`, and `modules/**` for class names to generate
 
 **Important**: When creating new files with Tailwind classes:
+
 1. Ensure they're in scanned directories (app, components, modules)
 2. Use `className` on React Native components (View, Text, Pressable, etc.)
 3. The babel config automatically converts these to styles at build time
 
 ### Component Structure
+
 - `components/` - Reusable UI components (Button, Card, etc.)
 - `app/` - Screen components (pages)
 - `modules/` - Feature-specific business logic (optional, prepare for future use)
@@ -64,6 +70,7 @@ npm test            # Run Jest tests in watch mode
 ## Common Development Tasks
 
 ### Adding a New Screen
+
 1. Create file in `app/` directory (e.g., `app/about.tsx`)
 2. Export default component
 3. Use Expo Router Stack.Screen in `_layout.tsx` if you need to customize header/options
@@ -83,6 +90,7 @@ export default function About() {
 ```
 
 ### Creating Reusable Components
+
 1. Add component to `components/` with proper TypeScript types
 2. Export from `components/index.ts` for convenience imports
 3. Use `className` for styling, compose Tailwind utilities
@@ -105,7 +113,9 @@ export function MyComponent({ label, className, ...props }: MyComponentProps) {
 ```
 
 ### Debugging Runtime Issues
+
 If encountering Tailwind styling not applying:
+
 1. Verify file is in scanned directories (app, components, modules)
 2. Run `npm run start:clean` to rebuild Tailwind classes
 3. Check that `global.css` is imported in the component's render tree
@@ -113,16 +123,19 @@ If encountering Tailwind styling not applying:
 ## Key Configuration Details
 
 ### app.json (Expo Config)
+
 - `sdkVersion: "52.0.0"` - Must match your Expo SDK version
 - `orientation: "portrait"` - App orientation (can be changed)
 - Minimal config: avoid asset paths that don't exist (causes bundler errors)
 
 ### babel.config.js
+
 - Critical: `jsxImportSource: 'nativewind'` enables className syntax
 - `babel-preset-expo` provides React Native transpilation
 - Both Babel presets must be present and in correct order
 
 ### tsconfig.json
+
 - Extends `expo/tsconfig.base`
 - Path aliases available (check for `@/*` patterns)
 
@@ -138,11 +151,13 @@ If encountering Tailwind styling not applying:
 ## Known Issues & Gotchas
 
 1. **SDK Version Error on Start**: If you see "AssertionError: SDK Version is missing":
+
    - Check `app.json` has valid `sdkVersion` field matching installed Expo
    - Ensure `app.json` doesn't have invalid JSON comments or malformed config
    - Run `npm run start:clean` to clear Metro cache
 
 2. **Tailwind Classes Not Applying**:
+
    - File must be in content scan path in `tailwind.config.js`
    - Run `npm run start:clean` after adding files to new directories
 
