@@ -109,6 +109,16 @@ eas build --platform ios
 eas build --platform android
 ```
 
+## Contributing
+
+We welcome contributions to Moor! Whether you're fixing bugs, adding features, or improving documentation, your help is appreciated.
+
+Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for detailed guidelines on:
+- Setting up your development environment
+- Code style and conventions
+- Submitting pull requests
+- Development workflow
+
 ## Resources
 
 - [Expo Documentation](https://docs.expo.dev)
