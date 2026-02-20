@@ -2,7 +2,7 @@
 
 ## Project Setup Completed ✅
 
-Your Moor Tracker project is now configured with:
+Your Moor project is now configured with:
 
 - ✅ **Expo** - Framework for building React Native apps
 - ✅ **React Native** - Cross-platform mobile development
@@ -19,6 +19,7 @@ npm start
 ```
 
 This will start the Expo development server. You'll see:
+
 ```
 ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 █ Local:   exp://192.168.x.x:8081
@@ -30,6 +31,7 @@ This will start the Expo development server. You'll see:
 ### 2. Choose Your Platform
 
 Once the server is running, press:
+
 - **`i`** - Run on iOS Simulator
 - **`a`** - Run on Android Emulator
 - **`w`** - Run on Web Browser
@@ -85,9 +87,7 @@ import { View, Text } from 'react-native';
 export default function Component() {
   return (
     <View className="flex-1 bg-slate-100 p-4">
-      <Text className="text-xl font-bold text-slate-900">
-        Styled with Tailwind!
-      </Text>
+      <Text className="text-xl font-bold text-slate-900">Styled with Tailwind!</Text>
     </View>
   );
 }
@@ -108,12 +108,10 @@ interface BadgeProps extends ViewProps {
 
 export function Badge({ label, variant = 'primary' }: BadgeProps) {
   return (
-    <View className={`px-3 py-1 rounded-full ${
-      variant === 'primary' ? 'bg-blue-500' : 'bg-slate-200'
-    }`}>
-      <Text className={variant === 'primary' ? 'text-white' : 'text-slate-900'}>
-        {label}
-      </Text>
+    <View
+      className={`px-3 py-1 rounded-full ${variant === 'primary' ? 'bg-blue-500' : 'bg-slate-200'}`}
+    >
+      <Text className={variant === 'primary' ? 'text-white' : 'text-slate-900'}>{label}</Text>
     </View>
   );
 }
@@ -128,11 +126,13 @@ npm install package-name
 ## Building for Production
 
 ### Generate APK/AAB (Android)
+
 ```bash
 eas build --platform android
 ```
 
 ### Generate IPA (iOS)
+
 ```bash
 eas build --platform ios
 ```
@@ -141,28 +141,31 @@ Requires Expo account and setup. See [EAS Build Docs](https://docs.expo.dev/eas-
 
 ## Useful Commands
 
-| Command | Description |
-|---------|------------|
-| `npm start` | Start dev server |
-| `npm run ios` | Run on iOS simulator |
+| Command           | Description             |
+| ----------------- | ----------------------- |
+| `npm start`       | Start dev server        |
+| `npm run ios`     | Run on iOS simulator    |
 | `npm run android` | Run on Android emulator |
-| `npm run web` | Run on web browser |
-| `npm test` | Run tests |
-| `npm run lint` | Lint code |
+| `npm run web`     | Run on web browser      |
+| `npm test`        | Run tests               |
+| `npm run lint`    | Lint code               |
 
 ## Troubleshooting
 
 ### Port Already in Use
+
 ```bash
 npm start -- --port 8082
 ```
 
 ### Clear Cache
+
 ```bash
 npm start -- --clear
 ```
 
 ### Reinstall Dependencies
+
 ```bash
 rm -rf node_modules
 npm install --legacy-peer-deps

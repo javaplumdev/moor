@@ -1,4 +1,4 @@
-# Moor Tracker
+# Moor
 
 A React Native app built with Expo, NativeWind, and TypeScript.
 
@@ -35,6 +35,7 @@ npm start
 ```
 
 Then choose your platform:
+
 - **iOS**: Press `i`
 - **Android**: Press `a`
 - **Web**: Press `w`
@@ -51,7 +52,7 @@ Then choose your platform:
 ## Project Structure
 
 ```
-moor-tracker/
+moor/
 ├── app/
 │   ├── _layout.tsx       # Root navigation layout
 │   ├── index.tsx         # Home screen
@@ -74,9 +75,7 @@ import { View, Text } from 'react-native';
 export default function App() {
   return (
     <View className="flex-1 bg-white items-center justify-center">
-      <Text className="text-2xl font-bold text-slate-900">
-        Hello, NativeWind!
-      </Text>
+      <Text className="text-2xl font-bold text-slate-900">Hello, NativeWind!</Text>
     </View>
   );
 }
@@ -91,6 +90,7 @@ To add UI component libraries (if needed), you can install:
 - **native-base** - Popular UI framework
 
 Example:
+
 ```bash
 npm install react-native-shadcn-ui
 ```
@@ -98,11 +98,13 @@ npm install react-native-shadcn-ui
 ## Building for Production
 
 ### iOS
+
 ```bash
 eas build --platform ios
 ```
 
 ### Android
+
 ```bash
 eas build --platform android
 ```
