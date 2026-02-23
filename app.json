@@ -5,10 +5,17 @@
     "version": "1.0.0",
     "sdkVersion": "52.0.0",
     "orientation": "portrait",
-    "platforms": ["ios", "android", "web"],
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "web": {
       "bundler": "metro",
-      "output": "static"
-    }
+      "output": "single"
+    },
+    "plugins": [
+      "expo-sqlite"
+    ]
   }
 }
